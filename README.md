@@ -30,7 +30,7 @@ This is an official repository for the paper - Synergizing In-context Learning w
 
 ## Usage
 
-Once the dependencies are installed, you can start training or evaluating the system. All our code is run from the <b>src<b> directory.
+Once the dependencies are installed, you can start training or evaluating the system. All our code is run from the <b>src</b> directory.
 
 Use following commands to train SyncTOD and generate the prompts.
 
@@ -55,6 +55,14 @@ Use following commands to train SyncTOD and generate the prompts.
 Above command stores the test prompts in `prompts.json` file in respective dataset folders.
 
 We use Azure OpenAI batch API to run the prompts. 
-    ```
-     python -u submit_job.py --prompt_file=../data/BiTOD/prompts.json --model=gpt-35-turbo --max_output_len=256
-    ```
+
+```bash
+python -u submit_job.py --prompt_file=../data/<datast>/prompts.json --model=<azure_endpoint> --max_output_len=256
+```
+
+We evaluate the results using following command.
+
+```bash
+python -m commons.metrics --dataset=<datast> --pred_path=<batch_api_result.jsonl> --data_path=../data/<dataset>/test.json --entity_file=../data/<dataset>/entities.json
+```
+
