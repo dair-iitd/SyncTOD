@@ -12,5 +12,5 @@ python -m prompting.add_hints -src=$PATH_TO_DATASET/test.json \
 
 python -m prompting.prompt_gen -ds=BiTOD \
     -idx=$PATH_TO_DATASET/train.json -src=$PATH_TO_DATASET/test.json \
-    -tar=$PATH_TO_DATASET/prompts_old.json -mode=predicted -hr=True \
+    -tar=$PATH_TO_DATASET/prompts.json -mode=predicted -hr=True \
     -eg=True -ef=$PATH_TO_DATASET/entities.json
